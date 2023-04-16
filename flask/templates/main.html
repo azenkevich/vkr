@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Расчет соотношения матрица-наполнитель</title>
+</head>
+<body>
+    <h1 style="font-family: tahoma;">Расчет соотношения матрица-наполнитель</h1>
+    <form action="" method="post">
+    <fieldset>
+    <strong><u> <legend style="font-family: tahoma; font-size: 7">Введите параметры</legend> </u></strong>
+    <p>
+        <input type="text" {% if params %}value={{params[0]}}{% endif %} name="Плотность, кг/м3" required>
+		<label for="Плотность, кг/м3" style="font-family: tahoma; font-size: 6">Плотность, кг/м3</label>
+    </p><p>
+        <input type="text" {% if params %}value={{params[1]}}{% endif %} name="модуль упругости, ГПа" required>
+		<label for="модуль упругости, ГПа" style="font-family: tahoma; font-size: 6">Модуль упругости, ГПа</label>
+    </p><p>
+        <input type="text" {% if params %}value={{params[2]}}{% endif %} name="Количество отвердителя, м.%" required>
+		<label for="Количество отвердителя, м.%" style="font-family: tahoma; font-size: 6">Количество отвердителя, м.%</label>
+    </p><p>
+        <input type="text" {% if params %}value={{params[3]}}{% endif %} name="Содержание эпоксидных групп,%_2" required>
+        <label for="Содержание эпоксидных групп,%_2" style="font-family: tahoma; font-size: 6">Содержание эпоксидных групп,%_2</label>
+    </p><p>
+        <input type="text" {% if params %}value={{params[4]}}{% endif %} name="Температура вспышки, С_2" required>
+		<label for="Температура вспышки, С_2" style="font-family: tahoma; font-size: 6">Температура вспышки, С_2</label>
+    </p><p>
+        <input type="text" {% if params %}value={{params[5]}}{% endif %} name="Поверхностная плотность, г/м2	" required>
+		<label for="Поверхностная плотность, г/м2	" style="font-family: tahoma; font-size: 6">Поверхностная плотность, г/м2</label>
+    </p><p>
+        <input type="text" {% if params %}value={{params[6]}}{% endif %} name="Модуль упругости при растяжении, ГПа" required>
+		<label for="Модуль упругости при растяжении, ГПа" style="font-family: tahoma; font-size: 6">Модуль упругости при растяжении, ГПа</label>
+    </p><p>
+        <input type="text" {% if params %}value={{params[7]}}{% endif %} name="Прочность при растяжении, МПа" required>
+		<label for="Прочность при растяжении, МПа" style="font-family: tahoma; font-size: 6">Прочность при растяжении, МПа</label>
+    </p><p>
+        <input type="text" {% if params %}value={{params[8]}}{% endif %} name="Потребление смолы, г/м2" required>
+		<label for="Потребление смолы, г/м2" style="font-family: tahoma; font-size: 6">Потребление смолы, г/м2</label>
+	    
+    </p><p>
+        <input type="text" {% if params %}value={{params[9]}}{% endif %} name="Угол нашивки, град" min='0' max='90' step='1' required>
+		<label for="Угол нашивки, град" style="font-family: tahoma; font-size: 6">Угол нашивки, град</label>
+    </p><p>
+        <input type="text" {% if params %}value={{params[10]}}{% endif %} name="Шаг нашивки" required>
+		<label for="Шаг нашивки" style="font-family: tahoma; font-size: 6">Шаг нашивки</label>
+    </p><p>
+        <input type="text" {% if params %}value={{params[11]}}{% endif %} name="Плотность нашивки" required>
+		<label for="Плотность нашивки" style="font-family: tahoma; font-size: 6">Плотность нашивки</label>
+	    
+	</p>
+    </fieldset>
+	<p>
+	    <input style="font-family: tahoma; font-size: 7" type="submit" value="Рассчитать">
+        <input style="font-family: tahoma; font-size: 7" type="reset">
+		{% if message %}
+			<input style="font-family: tahoma; font-size: 7" type="button" value="Очистить">
+		{% endif %}
+	</p>
+    </form>
+    <p>
+    {% if message %}
+        <p><b><label style="font-family: tahoma; font-size: 7">{{message}}</b></p>
+    {% endif %}
+    </p>
+	<script>
+		var button = document.querySelector('input[type="button"]');
+		function handleClick(){
+			var inputs = document.querySelectorAll('input[type="text"]');
+			for(input of inputs){
+				input.setAttribute('value', '');
+			}
+		}
+		button.addEventListener('click', handleClick);	
+	</script>
+</body>
+</html>
